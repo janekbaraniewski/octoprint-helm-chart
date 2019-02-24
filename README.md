@@ -1,7 +1,7 @@
 # Octoprint Helm Chart
 
-Helm chart I used for [Octoprint](https://octoprint.org/)
-Based on [nunofgs/octoprint](https://hub.docker.com/r/nunofgs/octoprint/) image
+Helm chart I used for [Octoprint](https://octoprint.org/)  
+Based on [nunofgs/octoprint](https://hub.docker.com/r/nunofgs/octoprint/) image  
 
 ## TL;DR;
 Clone/download this repo, then
@@ -17,8 +17,6 @@ $ helm install --name octoprint .
 | `image.repository`                    | octoprint image repository                            | `nunofgs/octoprint`                   |
 | `image.tag`          | image tag | `1.3.10-arm32v7`                              |
 | `image.pullPolicy`      | Image pull policy | `IfNotPresent`                                      |
-| `image.command` | Command passed to container | `[/bin/bash]`  |
-| `image.args`   | Command args passed to container | `["-c", "/OctoPrint-1.3.10/run --iknowwhatimdoing --port 80"]`                             |
 | `service.type`         | Service type                        | `NodePort`                                       |
 | `service.port`                | Port |`80`                |
 

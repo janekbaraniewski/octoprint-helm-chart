@@ -23,12 +23,8 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if .Values.image.command }}
-          command: {{ .Values.image.command }}
-          {{- end }}
-          {{- if .Values.image.args }}
-          args: {{ .Values.image.args }}
-          {{- end }}
+          command: ["/bin/bash"]
+          args: ["-c", "/OctoPrint-1.3.10/run --iknowwhatimdoing --port 80"]
           ports:
             - name: http
               containerPort: 80

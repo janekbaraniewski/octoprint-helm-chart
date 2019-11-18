@@ -1,7 +1,6 @@
 # Octoprint Helm Chart
 
 Helm chart I used for [Octoprint](https://octoprint.org/)
-Based on [nunofgs/octoprint](https://hub.docker.com/r/nunofgs/octoprint/) image
 
 ## TL;DR;
 Clone/download this repo, then

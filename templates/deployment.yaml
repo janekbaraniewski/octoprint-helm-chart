@@ -19,12 +19,15 @@ spec:
         app.kubernetes.io/name: {{ include "octoprint.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
+      volumes:
+        - name: printers
+          emptyDir: {}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["/bin/bash"]
-          args: ["-c", "/OctoPrint-1.3.10/run --iknowwhatimdoing --port 80"]
+          args: ["-c", "socat pty,wait-slave,link=/dev/printer,perm=0660,group=tty tcp:{{ .Values.printer.host }}:{{ .Values.printer.port }} & /OctoPrint-1.3.10/run --iknowwhatimdoing --port 80"]
           ports:
             - name: http
               containerPort: 80
